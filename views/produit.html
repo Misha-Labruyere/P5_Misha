@@ -11,6 +11,7 @@
         rel="stylesheet">
     <link href="style.css" rel="stylesheet">
     <title>Orinoco - Vente en ligne de caméras vintages</title>
+
 </head>
 
 <body>
@@ -25,16 +26,18 @@
         </nav>
     </header>
 
-    <section id="catalogue-camera">
+    <article id="selected-camera">
+        <img class="photo" src="">
+        <div class="name"></div>
+        <div class="price"></div>
+        <div class="description"></div>
+        <div id="camera-lens">
+            <label for="lenses-selected-element">Sélectionnez votre lentille</label>
 
-    </section>
-    
-    <article id="empty-camera">
-            <img class="photo" src="">
-            <div class="name"></div>
-            <div class="price"></div>
-            <div class="description"></div>
-            <a class="selected-product">Voir le produit</a>
+            <select name="lenses" id="lenses-selected-elements"></select>
+        </div>
+
+        <button class="add-to-cart">Ajouter au panier</button>
     </article>
 
     <footer>
@@ -49,7 +52,7 @@
         </section>
     </footer>
 
-    <script src="index.js"></script>
+    <script src="produit.js"></script>
 
 </body>
 
