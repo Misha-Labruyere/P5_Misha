@@ -29,15 +29,20 @@ for (let i = 0; i < camerasInCart.length; i++) {
         targetCameraElement.querySelector(".product-count").innerHTML = countNumber + 1;
       }
 
-    });
+    }); 
 
 }
 
-let envoi = document.getElementById('btn-envoi')
-envoi.addEventListener("click", data)
+let sentForm = document.getElementById('sent-form')
+sentForm.addEventListener("click", data)
 
 function data (e) {
 e.preventDefault();
+var idCameras = []
+for ( i=0 ; i<camerasInCart.length ; i++) {
+    idCameras.push(camerasInCart[i].idProduct)
+  }
+
 var data = {
   contact : {
     firstName : document.getElementById('first-name').value,
@@ -47,9 +52,12 @@ var data = {
     email : document.getElementById('mail').value,
   },
 
-  camera : JSON.parse(localStorage.getItem('camerasInCart')),
+  order : idCameras
 
 }
+
+console.log(data)
+
 
 var request = new XMLHttpRequest();
 request.open("POST", "http://localhost:3000/api/cameras/order");
