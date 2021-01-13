@@ -32,3 +32,44 @@ for (let i = 0; i < camerasInCart.length; i++) {
     });
 
 }
+
+let envoi = document.getElementById('btn-envoi')
+envoi.addEventListener("click", data)
+
+function data (e) {
+e.preventDefault();
+var data = {
+  contact : {
+    firstName : document.getElementById('first-name').value,
+    lastName : document.getElementById('last-name').value,
+    city : document.getElementById('city').value,
+    address : document.getElementById('address').value,
+    email : document.getElementById('mail').value,
+  },
+
+  camera : JSON.parse(localStorage.getItem('camerasInCart')),
+
+}
+
+var request = new XMLHttpRequest();
+request.open("POST", "http://localhost:3000/api/cameras/order");
+request.setRequestHeader("Content-Type", "application/json");
+request.send(JSON.stringify(data));
+}
+
+
+//function submitFunction(params, event) {
+  //event.preventDefault();
+
+  // verifie que chaque entree est conforme a ce que tu attend 
+  // email -> ****@**.***
+  // si tu a une erreur dans un input, ca nenvoi rien, affiche un message qui previse lerreur
+
+  // map ton form
+  // transformer tes input valide en un tableau avec le format attendu 
+  
+  //retour message succes ou erreur 
+  // Si succes, vider le panier
+  
+  
+
