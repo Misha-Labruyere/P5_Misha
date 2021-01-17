@@ -52,18 +52,26 @@ var data = {
     email : document.getElementById('mail').value,
   },
 
-  order : idCameras
-
+  products : idCameras
 }
 
-console.log(data)
 
 
 var request = new XMLHttpRequest();
+ request.onreadystatechange = function () {
+   if (request.readyState === 4) {
+     console.log(JSON.parse(request.response));
+     document.location.href = "validation.html";
+    localStorage.setItem("validation", request.response);
+   }
+
+ };
 request.open("POST", "http://localhost:3000/api/cameras/order");
 request.setRequestHeader("Content-Type", "application/json");
 request.send(JSON.stringify(data));
+
 }
+
 
 
 //function submitFunction(params, event) {
