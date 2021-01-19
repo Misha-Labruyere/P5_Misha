@@ -7,9 +7,8 @@ fetch("http://localhost:3000/api/cameras/")
 
       let newCamera = emptyProduct.cloneNode(true);
 
-      //enlève ou cache la caméra vide
-
       //compléter les informations de la camera
+      newCamera.setAttribute('id', 'camera-' + product[i].idProduct)
       newCamera.getElementsByClassName("name")[0].innerHTML = product[i].name;
       newCamera.getElementsByClassName("price")[0].innerHTML =
         Intl.NumberFormat("de").format(product[i].price) + "€";
