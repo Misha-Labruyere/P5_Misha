@@ -1,6 +1,6 @@
-creationCart();
+displayCart();
 
-function creationCart() {
+function displayCart() {
   let camerasInCart = JSON.parse(localStorage.getItem("camerasInCart"));
 
   for (let i = 0; i < camerasInCart.length; i++) {
@@ -66,6 +66,8 @@ let sentForm = document.getElementById("sent-form");
 sentForm.addEventListener("click", data);
 
 function data(e) {
+  let camerasInCart = JSON.parse(localStorage.getItem("camerasInCart"));
+
   e.preventDefault();
   var idCameras = [];
   for (i = 0; i < camerasInCart.length; i++) {
@@ -87,37 +89,40 @@ function data(e) {
   var request = new XMLHttpRequest();
   request.onreadystatechange = function () {
     if (request.readyState === 4) {
-      console.log(JSON.parse(request.response));
       document.location.href = "validation.html";
       localStorage.setItem("validation", request.response);
-    }
+	}
+	else {
+		alert("Le formulaire n'est pas correct");
+	}
   };
   request.open("POST", "http://localhost:3000/api/cameras/order");
   request.setRequestHeader("Content-Type", "application/json");
   request.send(JSON.stringify(data));
 }
 
-function articleSuppression(cameraId, choiceLense) {
-  console.log(cameraId);
-  console.log(choiceLense);
-
+function articleSuppression(cameraId, choicedLense) {
   //On veut d'abord récupérer le tableau des produits sélectionnés depuis le localstorage (parsed)
   let oldCart = JSON.parse(localStorage.getItem("camerasInCart"));
-  console.log(oldCart);
 
   //On veut supprimer l'entrée d'un tableau
   for (i = 0; i < oldCart.length; i++) {
-    if (cameraId[i] + choiceLense[i]) {
+    indexTemp = i;
+    if (
+      oldCart[i].idProduct == cameraId &&
+      oldCart[i].choiceLense == choicedLense
+    ) {
       oldCart.splice(i, 1);
+      break;
     }
   }
+
   //Supprimer le panier dans le html
-  localStorage.removeItem("camerasInCart");
+  // localStorage.removeItem("camerasInCart");
+  document.getElementById("cameras-in-cart").innerHTML = "";
 
   //Sauvegarder dans le localstorage le nouveau tableau généré
-  let newCart = localStorage.setItem("camerasInCart", JSON.stringify(oldCart));
+  localStorage.setItem("camerasInCart", JSON.stringify(oldCart));
 
-  window.location.reload();
-
-  creationCart(newCart);
+  displayCart();
 }

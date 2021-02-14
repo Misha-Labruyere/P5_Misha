@@ -17,7 +17,7 @@ fetch("http://localhost:3000/api/cameras/" + selectedCamera)
 
 function insertLens(lenses) {
   const cameraLens = document.getElementById("camera-lens");
-  const lensesSelectElement = document.getElementById("lenses-selected-elements");
+  const lensesSelectElement = document.getElementById("lenses");
 
   for (let i = 0; i < lenses.length; i++) {
     const lensesOptionElement = document.createElement("option");
@@ -28,7 +28,7 @@ function insertLens(lenses) {
 }
 
 function addToCart(product) {
-  let selectChoices = document.getElementById("lenses-selected-elements");
+  let selectChoices = document.getElementById("lenses");
   let choiceLense = selectChoices.options[selectChoices.selectedIndex].value;
   let choice = { idProduct: product._id, choiceLense: choiceLense };
   let camerasInCart = [];
