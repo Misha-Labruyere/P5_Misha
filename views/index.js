@@ -7,7 +7,7 @@ fetch("http://localhost:3000/api/cameras/")
 
       let newCamera = emptyProduct.cloneNode(true);
 
-      //compléter les informations de la camera
+      //compléter les informations de chaque camera
       newCamera.setAttribute('id', 'camera-' + product[i].idProduct)
       newCamera.getElementsByClassName("name")[0].innerHTML = product[i].name;
       newCamera.getElementsByClassName("price")[0].innerHTML =
@@ -19,7 +19,7 @@ fetch("http://localhost:3000/api/cameras/")
         .getElementsByClassName("selected-product")[0]
         .setAttribute("href", "./produit.html?id=" + product[i]._id);
 
-      //ajouter le lien de personnalisation vers la page du produit
+      //ajouter le lien vers la page du produit
       newCamera.getElementsByClassName(
         "selected-product"
       )[0].onclick = function lensCustomization() {

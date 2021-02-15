@@ -1,3 +1,4 @@
+//Ajout de chaque produit du localstorage dans le panier
 displayCart();
 
 function displayCart() {
@@ -62,6 +63,7 @@ function displayCart() {
   }
 }
 
+//Vérification et envoi du formulaire
 let sentForm = document.getElementById("sent-form");
 sentForm.addEventListener("click", data);
 
@@ -104,11 +106,11 @@ function data(e) {
 
 }
 
+
+//Suppression d'un article au click sur le bouton de suppression
 function articleSuppression(cameraId, choicedLense) {
-  //On veut d'abord récupérer le tableau des produits sélectionnés depuis le localstorage (parsed)
   let oldCart = JSON.parse(localStorage.getItem("camerasInCart"));
 
-  //On veut supprimer l'entrée d'un tableau
   for (i = 0; i < oldCart.length; i++) {
     indexTemp = i;
     if (
@@ -120,11 +122,8 @@ function articleSuppression(cameraId, choicedLense) {
     }
   }
 
-  //Supprimer le panier dans le html
-  // localStorage.removeItem("camerasInCart");
   document.getElementById("cameras-in-cart").innerHTML = "";
 
-  //Sauvegarder dans le localstorage le nouveau tableau généré
   localStorage.setItem("camerasInCart", JSON.stringify(oldCart));
 
   displayCart();

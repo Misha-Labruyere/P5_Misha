@@ -1,5 +1,7 @@
+//Récupération de l'ID du produit sélectionné dans le localstorage
 let selectedCamera = localStorage.getItem("selectedProduct");
 
+//Appel à l'API avec ID du produit sélectionné pour récupérer les informations du produit
 fetch("http://localhost:3000/api/cameras/" + selectedCamera)
   .then((product) => product.json())
   .then((product) => {
@@ -15,6 +17,7 @@ fetch("http://localhost:3000/api/cameras/" + selectedCamera)
     });
 });
 
+//Liste déroulante pour le choix de lentilles
 function insertLens(lenses) {
   const cameraLens = document.getElementById("camera-lens");
   const lensesSelectElement = document.getElementById("lenses");
@@ -27,6 +30,7 @@ function insertLens(lenses) {
   }
 }
 
+//Bouton d'ajout au panier du produit
 function addToCart(product) {
   let selectChoices = document.getElementById("lenses");
   let choiceLense = selectChoices.options[selectChoices.selectedIndex].value;
