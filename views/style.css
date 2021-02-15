@@ -19,7 +19,6 @@ header {
   min-height: 8vw;
   padding-top: 30px;
   padding-bottom: 30px;
-  margin-bottom: 40px;
 }
 
 h1 {
@@ -32,16 +31,9 @@ a {
   color: black;
 }
 
-img {
-  max-height: 20vw;
-}
-
 #catalogue-camera {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  padding-top: 0px;
 }
-
 
 .camera-infos {
   background-color: rgb(255, 255, 255);
@@ -57,15 +49,13 @@ img {
 }
 
 #empty-camera {
-  visibility: hidden;
-  margin: 0%;
-  padding: 0%;
+  display: none;
 }
 
-footer {
+#footer {
   background-color: rgba(240, 238, 230, 0.432);
   min-height: 5vw;
-  margin-top: 25px;
+  margin-top: 75px;
   bottom: 0px;
   width: 100%;
 }
@@ -78,11 +68,11 @@ ul {
   padding-bottom: 20px;
 }
 
-#selected-camera img {
+img {
   width: 40%;
   max-height: 60%;
   margin-left: 30%;
-  margin-top: 40px;
+  margin-top: 30px;
   box-shadow: 0.8em 0.8em gold;
 }
 
@@ -126,8 +116,8 @@ button {
   max-width: 50%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 18%;
-  margin-bottom: 60%;
+  margin-top: 15%;
+  margin-bottom: 19%;
   box-shadow: 0.7em 0.7em gold, -0.01em 0 0 0.1em lightgray;
 }
 
@@ -138,6 +128,7 @@ form {
 }
 
 .cart {
+  margin-top: 20px;
   text-align: center;
   text-transform: uppercase;
 }
@@ -146,14 +137,13 @@ form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  max-width: 70%;
+  max-width: 52%;
   min-height: 100px;
   margin: auto;
   margin-left: auto;
   margin-right: auto;
-  font-size: medium;
+  font-size: 18px;
   font-family: "Montserrat";
-  font-weight: 200;
   line-height: 2rem;
   background-color: rgba(255, 255, 255, 0.242);
 }
@@ -165,11 +155,12 @@ form div {
 }
 
 #data #address {
-  min-width: 60vw
+  min-width: 50vw
 }
 
 #sent-form {
   min-width: 400px;
+  font-size: 24px;
 }
 
 h3 {
@@ -187,17 +178,15 @@ h3 {
   max-width: 60vw;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 250px;
+  margin-bottom: 150px;
 }
 
-.photo {
-  width: 20vw;
-  margin: auto;
-}
 
 .selected-product {
   background-color: gold;
   text-align: center;
+  margin-top: 10px;
+  padding: 5px;
 }
 
 .add-to-cart {

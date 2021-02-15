@@ -91,10 +91,9 @@ function data(e) {
 
   var request = new XMLHttpRequest();
   request.onreadystatechange = function () {
-
-    if (request.readyState === 4) {
+    if (request.readyState == 4 && request.status !== 400) {
       document.location.href = "validation.html";
-      localStorage.setItem("validation", request.response);
+	  localStorage.setItem("validation", request.response);
 	}
 
   };
@@ -102,8 +101,7 @@ function data(e) {
   request.open("POST", "http://localhost:3000/api/cameras/order");
   request.setRequestHeader("Content-Type", "application/json");
   request.send(JSON.stringify(data));
-
-
+  
 }
 
 
