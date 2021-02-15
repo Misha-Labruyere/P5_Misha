@@ -65,6 +65,7 @@ function displayCart() {
 let sentForm = document.getElementById("sent-form");
 sentForm.addEventListener("click", data);
 
+
 function data(e) {
   let camerasInCart = JSON.parse(localStorage.getItem("camerasInCart"));
 
@@ -88,17 +89,19 @@ function data(e) {
 
   var request = new XMLHttpRequest();
   request.onreadystatechange = function () {
+
     if (request.readyState === 4) {
       document.location.href = "validation.html";
       localStorage.setItem("validation", request.response);
 	}
-	else {
-		alert("Le formulaire n'est pas correct");
-	}
+
   };
+
   request.open("POST", "http://localhost:3000/api/cameras/order");
   request.setRequestHeader("Content-Type", "application/json");
   request.send(JSON.stringify(data));
+
+
 }
 
 function articleSuppression(cameraId, choicedLense) {
