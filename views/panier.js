@@ -63,6 +63,28 @@ function displayCart() {
   }
 }
 
+//Suppression d'un article au click sur le bouton de suppression
+function articleSuppression(cameraId, choicedLense) {
+  let oldCart = JSON.parse(localStorage.getItem("camerasInCart"));
+
+  for (i = 0; i < oldCart.length; i++) {
+    indexTemp = i;
+    if (
+      oldCart[i].idProduct == cameraId &&
+      oldCart[i].choiceLense == choicedLense
+    ) {
+      oldCart.splice(i, 1);
+      break;
+    }
+  }
+
+  document.getElementById("cameras-in-cart").innerHTML = "";
+
+  localStorage.setItem("camerasInCart", JSON.stringify(oldCart));
+
+  displayCart();
+}
+
 //Vérification et envoi du formulaire
 let sentForm = document.getElementById("sent-form");
 sentForm.addEventListener("click", data);
@@ -102,27 +124,4 @@ function data(e) {
   request.setRequestHeader("Content-Type", "application/json");
   request.send(JSON.stringify(data));
   
-}
-
-
-//Suppression d'un article au click sur le bouton de suppression
-function articleSuppression(cameraId, choicedLense) {
-  let oldCart = JSON.parse(localStorage.getItem("camerasInCart"));
-
-  for (i = 0; i < oldCart.length; i++) {
-    indexTemp = i;
-    if (
-      oldCart[i].idProduct == cameraId &&
-      oldCart[i].choiceLense == choicedLense
-    ) {
-      oldCart.splice(i, 1);
-      break;
-    }
-  }
-
-  document.getElementById("cameras-in-cart").innerHTML = "";
-
-  localStorage.setItem("camerasInCart", JSON.stringify(oldCart));
-
-  displayCart();
 }
