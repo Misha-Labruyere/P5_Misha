@@ -27,28 +27,22 @@
 
     <h3 class="cart">Récapitulatif de votre panier</h3>
 
-    <article id="empty-camera" class="camera-infos">
-        <img class="photo" src="">
+    <div id="empty-camera" class="camera-infos">
+        <img class="photo" src="panier.js" alt="Photo de camera">
         <div class="name"></div>
         <div class="price"></div>
         <div class="description"></div>
         <div class="selected-lens"></div>
         <div class="product-count"></div>
         <button class="article-suppression">Supprimer l'article</button>
-    </article>
+    </div>
 
-    <section id="cameras-in-cart">
-
-
-
-    </section>
-
-
+    <div id="cameras-in-cart"></div>
 
     <form id="data">
 
         <div>
-            <label for="fist-name">Prénom :</label>
+            <label for="first-name">Prénom :</label>
             <input type="text" id="first-name" name="fist-name" required >
         </div>
         <div>
@@ -75,8 +69,7 @@
 
 
 
-    <footer>
-        <section id="footer" class="footer-catalogue">
+    <footer id="footer" class="footer-catalogue">
             <div class="informations">
                 <ul>
                     <li><a href="#">Qui sommes nous ?</a></li>
@@ -84,7 +77,6 @@
                     <li><a href="#">Conditions générales</a></li>
                 </ul>
             </div>
-        </section>
     </footer>
 
     <script src="panier.js"></script>
